@@ -1,0 +1,41 @@
+﻿@model GameModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Data - @Model.Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/details.css">
+</head>
+<body>
+    <div class="systemContainer">
+        <div class="header">
+            <h2>SYSTEM DATA</h2>
+        </div>
+
+        <div class="gamePanel">
+            <div class="gameId">ID: @Model.ID</div>
+            <h1 class="gameTitle">@Model.Title</h1>
+
+            <div class="gameStats">
+                <div class="stat"><span class="label">GENRE:</span> @Model.Genre</div>
+                <div class="stat"><span class="label">RATING:</span> <span class="rating">@Model.Rating</span></div>
+            </div>
+
+            <div class="buttonGroup">
+                <form action="/GameShop/Completed" method="post" style="display: inline-block;">
+                    <input type="hidden" name="id" value="@Model.ID" />
+                    <button class="btn btnAdd" type="submit">PASSED</button>
+                </form>
+                <form action="/GameShop/Delete" method="post" style="display: inline-block;">
+                    <input type="hidden" name="id" value="@Model.ID" />
+
+                    <button type="submit" class="btn btn-delete">DELETE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

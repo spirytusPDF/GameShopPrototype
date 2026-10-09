@@ -1,0 +1,207 @@
+
+:root {
+    --ps-blue: #0044ff;
+    --ps-cyan: #00eeff;
+    --ps-dark-bg: #030613;
+    --ps-text: #d4e0ff;
+    --ps-accent-red: #ff2a2a;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--ps-dark-bg);
+    background: radial-gradient(circle at center, #0a1130 0%, #000000 100%);
+    color: var(--ps-text);
+    font-family: 'Orbitron', sans-serif;
+    min-height: 100vh;
+    background-image: repeating-linear-gradient( 0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px );
+}
+
+.gameHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    background: rgba(0, 10, 30, 0.9);
+    border-bottom: 2px solid #0044ff;
+    box-shadow: 0 0 15px rgba(0, 68, 255, 0.4);
+    font-family: 'Orbitron', sans-serif;
+}
+
+    .gameHeader a {
+        text-decoration: none;
+        color: #d4e0ff;
+        background: transparent;
+        border: 1px solid #0044ff;
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: all 0.2s ease-in-out;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .gameHeader a:hover {
+            color: #00eeff;
+            border-color: #00eeff;
+            background: rgba(0, 238, 255, 0.15);
+            box-shadow: 0 0 12px rgba(0, 238, 255, 0.6), inset 0 0 8px rgba(0, 238, 255, 0.4);
+            text-shadow: 0 0 5px #00eeff;
+            cursor: pointer;
+        }
+
+        .gameHeader a:active {
+            transform: scale(0.95);
+            background: rgba(0, 238, 255, 0.3);
+        }
+
+        .gameHeader a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: transparent;
+            transition: all 0.2s;
+        }
+
+        .gameHeader a:hover::before {
+            background: #00eeff;
+            box-shadow: 0 0 8px #00eeff;
+        }
+
+.gameContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 50px;
+    justify-content: center;
+}
+
+.gameCard {
+    background: linear-gradient(135deg, rgba(10, 15, 30, 0.9) 0%, rgba(0, 5, 15, 0.9) 100%);
+    border: 1px solid var(--ps-blue);
+    box-shadow: inset 0 0 10px rgba(0, 68, 255, 0.3), 0 0 15px rgba(0, 0, 0, 0.8);
+    width: 280px;
+    padding: 25px;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+    .gameCard:hover {
+        transform: scale(1.05);
+        border-color: var(--ps-cyan);
+        box-shadow: inset 0 0 20px rgba(0, 238, 255, 0.4), 0 0 20px rgba(0, 238, 255, 0.6);
+        cursor: pointer;
+    }
+
+    .gameCard::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--ps-blue);
+        box-shadow: 0 0 10px var(--ps-cyan);
+    }
+
+.cardSerial {
+    font-size: 0.7rem;
+    color: #5577cc;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.gameTitle {
+    font-size: 1.4rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;
+    text-shadow: 0 0 8px #ffffff;
+    border-bottom: 1px dashed #3355aa;
+    padding-bottom: 10px;
+}
+
+.gameInfo {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.label {
+    color: #6688dd;
+    font-size: 0.8rem;
+}
+
+.gameGenre {
+    margin-bottom: 15px;
+}
+
+.gameRating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ratingBox {
+    background-color: var(--ps-accent-red);
+    color: white;
+    padding: 3px 8px;
+    font-weight: 700;
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--ps-accent-red);
+    text-shadow: 1px 1px 0 #000;
+}
+
+.noData {
+    font-size: 2rem;
+    color: var(--ps-accent-red);
+    text-shadow: 0 0 10px var(--ps-accent-red);
+    margin-top: 100px;
+}
+
+.blink {
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.discIcon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: conic-gradient(from 0deg, #333, #ccc, #333, #ccc, #333);
+    box-shadow: 0 0 5px #000;
+    animation: spin 3s linear infinite;
+}
+
+    .discIcon::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8px;
+        height: 8px;
+        background: var(--ps-dark-bg);
+        border-radius: 50%;
+    }
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}

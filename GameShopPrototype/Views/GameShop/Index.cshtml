@@ -1,0 +1,49 @@
+﻿@model List<GameModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/main.css">
+</head>
+<body>
+    <header class="gameHeader">
+        <a href="/GameShop/Create" target="_parent">ADD NEW GAME</a>
+        <a href="/GameSHop/Completed" target="_parent">SEE COMPLETED GAMES</a>
+    </header>
+    <div class="gameContainer">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var game in Model)
+            {
+                <a href="/GameShop/Details/@game.ID" target="_parent">
+                <div class="gameCard">
+                    <div class="discIcon"></div>
+                    <div class="cardSerial">SLUS-@game.ID.ToString("D5")</div>
+
+                    <h2 class="gameTitle">@game.Title</h2>
+
+                    <div class="gameInfo">
+                        <div class="gameGenre">
+                            <span class="label">GENRE:</span> @game.Genre
+                        </div>
+                        <div class="gameRating">
+                            <span class="label">SCORE:</span> <span class="ratingBox">@game.Rating</span>
+                        </div>
+                    </div>
+					</div>
+				</a>
+            }
+        }
+        else
+        {
+            <div class="noData">
+                <span class="blink">NO DATA FOUND</span>
+            </div>
+        }
+    </div>
+</body>
+</html>
